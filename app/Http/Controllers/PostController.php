@@ -20,7 +20,7 @@ class PostController extends Controller
             $user = User::firstWhere("username", request("user"));
             $title = " by " . $user->name;
         }
-        return view("posts", [
+        return view("pages.frontend.posts", [
             "title" => "All Posts" . $title,
             "active" => "posts",
             "posts" => Post::latest()
@@ -32,7 +32,7 @@ class PostController extends Controller
 
     public function detail(Post $post)
     {
-        return view("detail-post", [
+        return view("pages.frontend.detail-post", [
             "title" => "Detail Post",
             "active" => "posts",
             "post" => $post,

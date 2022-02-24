@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view("categories", [
+        return view("pages.frontend.categories", [
             "title" => "Category",
             "active" => "categories",
             "categories" => Category::all(),

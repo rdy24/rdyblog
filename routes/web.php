@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\PostController;
 
@@ -30,9 +31,7 @@ Route::get("/category", [CategoryController::class, "index"])->name("category");
 Route::prefix("dashboard")
     ->middleware(["auth:sanctum", "verified"])
     ->group(function () {
-        Route::get("/", function () {
-            return view("dashboard");
-        })->name("dashboard");
+        Route::get("/", [DashboardController::class, "index"])->name("dashboard");
         Route::resource("posts", DashboardPostController::class);
     });
 Route::prefix("dashboard")

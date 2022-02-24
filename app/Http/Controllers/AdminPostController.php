@@ -46,10 +46,10 @@ class AdminPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $all_post)
     {
         return view("pages.dashboard.admin.posts.show", [
-            "post" => $post
+            "post" => $all_post
         ]);
     }
 
@@ -82,9 +82,9 @@ class AdminPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $all_post)
     {
-        $post->delete();
+        $all_post->delete();
 
         return redirect()->route("all-posts.index")->with("success", "Post deleted successfully");
     }
